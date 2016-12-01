@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,14 +39,63 @@
                                     <constraint firstAttribute="height" constant="55" id="vjg-2Z-Wvr"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play &amp; Transcribe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaQ-La-FXf">
+                                <rect key="frame" x="16" y="619" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="k0H-DH-wXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG1-UZ-DYR">
+                                <rect key="frame" x="157" y="551" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="a8c-u0-k6u"/>
+                                    <constraint firstAttribute="width" constant="60" id="fQf-O1-QWQ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="playBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTQ-ad-Tiz"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FmA-4K-AZP">
+                                <rect key="frame" x="157.5" y="551.5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1aj-UR-gOt"/>
+                                    <constraint firstAttribute="width" constant="60" id="Ow0-TW-v2d"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Play and transcribe your audio to text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KnD-9D-71B">
+                                <rect key="frame" x="20" y="75" width="335" height="456"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="oG1-UZ-DYR" firstAttribute="top" secondItem="KnD-9D-71B" secondAttribute="bottom" constant="20" id="280-sD-TRb"/>
+                            <constraint firstItem="KnD-9D-71B" firstAttribute="top" secondItem="ygb-Ri-uTi" secondAttribute="bottom" constant="20" id="4XI-Ro-OyX"/>
+                            <constraint firstItem="gaQ-La-FXf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9fz-uz-iPi"/>
+                            <constraint firstItem="gaQ-La-FXf" firstAttribute="top" secondItem="oG1-UZ-DYR" secondAttribute="bottom" constant="8" id="9m6-gw-M0z"/>
                             <constraint firstItem="ygb-Ri-uTi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fc0-hl-E8T"/>
                             <constraint firstAttribute="trailing" secondItem="ygb-Ri-uTi" secondAttribute="trailing" id="WJC-uo-odC"/>
+                            <constraint firstItem="FmA-4K-AZP" firstAttribute="centerX" secondItem="oG1-UZ-DYR" secondAttribute="centerX" id="atG-Jt-FnM"/>
+                            <constraint firstItem="gaQ-La-FXf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cA7-Ic-5ud"/>
                             <constraint firstItem="ygb-Ri-uTi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jy7-52-nYJ"/>
+                            <constraint firstItem="oG1-UZ-DYR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="on9-oW-bBr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaQ-La-FXf" secondAttribute="bottom" constant="20" id="rEi-7w-yH4"/>
+                            <constraint firstItem="KnD-9D-71B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="rrl-gg-5QA"/>
+                            <constraint firstAttribute="trailing" secondItem="KnD-9D-71B" secondAttribute="trailing" constant="20" id="xSn-8f-b8H"/>
+                            <constraint firstItem="FmA-4K-AZP" firstAttribute="centerY" secondItem="oG1-UZ-DYR" secondAttribute="centerY" id="yre-Tm-Z1H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activitySpinner" destination="FmA-4K-AZP" id="Ai7-4Q-HFO"/>
+                        <outlet property="textView" destination="KnD-9D-71B" id="lgB-yW-25v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
